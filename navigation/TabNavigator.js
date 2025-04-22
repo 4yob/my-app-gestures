@@ -2,14 +2,15 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/Ionicons";
 
-import HomeScreen from "../screens/Alejandra";
+import AlejandraNavigator from "./AlejandraNavigator";
+import BrunaNavigator from "./BrunaNavigator";
 
 const Tab = createBottomTabNavigator();
 
 export default function TabNavigator() {
     return (
         <Tab.Navigator
-        initialRouteName="Home"
+        initialRouteName="Alejandra"
         screenOptions={{
             headerShown: false,
             headerStyle: {
@@ -24,8 +25,8 @@ export default function TabNavigator() {
             tabBarStyle: {
                 backgroundColor: "ghostwhite",
                 position: "absolute",
-                borderTopLeftRadius: 25,
-                borderTopRightRadius: 25,
+                borderRadius: 50,
+                margin: 20,
                 height: 60,
                 border: "1px solid lightgray",
                 opacity: 0.5,
@@ -39,9 +40,14 @@ export default function TabNavigator() {
             tabBarInactiveTintColor: "dimgray",
         }}
         >
-            <Tab.Screen name="Home" component={HomeScreen} options={{
+            <Tab.Screen name="Alejandra" component={AlejandraNavigator} options={{
                 tabBarIcon: ({ color, size }) => (
-                    <Icon name="home" color={color} size={size} />
+                    <Icon name="star" color={color} size={size} />
+                ),
+            }}/>
+            <Tab.Screen name="Bruna" component={BrunaNavigator} options={{
+                tabBarIcon: ({ color, size }) => (
+                    <Icon name="eye" color={color} size={size} />
                 ),
             }}/>
         </Tab.Navigator>
